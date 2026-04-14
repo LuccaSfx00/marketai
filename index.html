@@ -613,6 +613,14 @@
           <div style="margin-top:10px; font-family:var(--mono); font-size:10px; color:var(--teal-text); letter-spacing:1px;">
             IA identifica preço unitário e atacado
           </div>
+          <div id="cam-error-panel" style="display:none; margin-top:14px; width:280px;
+            background:#1a1a1a; border:1px solid var(--danger); border-radius:8px;
+            padding:10px 12px; pointer-events:none;">
+            <div style="font-family:var(--mono); font-size:9px; text-transform:uppercase;
+              letter-spacing:1.5px; color:var(--danger); margin-bottom:5px;">❌ ERRO</div>
+            <div id="cam-error-msg" style="font-family:var(--mono); font-size:11px;
+              color:#ffaaaa; line-height:1.5; word-break:break-word;"></div>
+          </div>
         </div>
 
         <div class="cam-topbar">
@@ -1233,14 +1241,19 @@ async function captureAndAnalyze(){
     const ctx=state.shoppingList.map(i=>`- ${i.name} (${i.plannedQty}×, ${i.category})`).join('\n')||'Lista vazia.';
     const result=await callGemini(b64,ctx);
     if(result.error){
+      showCamError(result.error);
       showToast(`⚠️ ${result.error}`,'warn');
     } else {
+      hideCamError();
       state.currentResult=result; state.resultQty=1;
       showResultSheet();
     }
   }catch(e){
-    console.error(e);
-    showToast('❌ '+(e.message||'Erro ao analisar imagem'),'error');
+    const status = e.status ? ` (status ${e.status})` : '';
+    const msg = (e.message||'Erro ao analisar imagem') + status;
+    console.error('Gemini error:', JSON.stringify({message:e.message, status:e.status, stack:e.stack, raw:String(e)}));
+    showCamError(msg);
+    showToast('❌ '+msg,'error');
   }finally{
     btn.innerHTML='📸'; btn.disabled=false;
     setCamStatus('PRONTO',false);
@@ -1296,12 +1309,29 @@ Se não houver preço de atacado: wholesale.enabled = false, min_qty = null, pri
   });
 
   if(!res.ok){
-    const e=await res.json().catch(()=>({}));
-    throw new Error(e.error?.message||`Erro API: ${res.status}`);
+    const errBody=await res.json().catch(()=>({}));
+    const errMsg=errBody.error?.message||`Erro API ${res.status}`;
+    console.error('Gemini error:', JSON.stringify({status:res.status, body:errBody}));
+    const err=new Error(errMsg);
+    err.status=res.status;
+    throw err;
   }
   const data=await res.json();
   const text=data.candidates?.[0]?.content?.parts?.[0]?.text||'';
   return JSON.parse(text.replace(/```json|```/g,'').trim());
+}
+
+// ──────────────── CAM ERROR PANEL ────────────────
+function showCamError(msg){
+  const panel=document.getElementById('cam-error-panel');
+  const txt=document.getElementById('cam-error-msg');
+  if(!panel||!txt) return;
+  txt.textContent=msg;
+  panel.style.display='block';
+}
+function hideCamError(){
+  const panel=document.getElementById('cam-error-panel');
+  if(panel) panel.style.display='none';
 }
 
 // ──────────────── RESULT SHEET ────────────────
@@ -1560,7 +1590,7 @@ function showToast(msg,type='success'){
   const el=document.getElementById('toast');
   el.textContent=msg; el.className=`${type} visible`;
   if(_tt) clearTimeout(_tt);
-  _tt=setTimeout(()=>el.classList.remove('visible'),2600);
+  _tt=setTimeout(()=>el.classList.remove('visible'),6000);
 }
 
 // ──────────────── BOOT ────────────────
