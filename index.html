@@ -322,6 +322,72 @@
     @keyframes spin { from{transform:rotate(0)} to{transform:rotate(360deg)} }
     ::-webkit-scrollbar { width:0; }
     button { font-family:var(--sans); }
+
+    /* ===== LINK SECTION (result sheet manual link) ===== */
+    .link-section { background:var(--surface); border:0.5px solid #444; border-radius:var(--r); padding:12px; margin-bottom:12px; }
+    .link-section-lbl { font-size:11px; color:var(--text2); margin-bottom:8px; }
+    .link-tabs { display:flex; gap:0; border-radius:6px; overflow:hidden; border:0.5px solid #444; margin-bottom:10px; }
+    .ltab-btn { flex:1; padding:8px 6px; background:var(--surface2); border:none; font-size:11px; font-weight:600; color:var(--text3); cursor:pointer; transition:all .15s; }
+    .ltab-btn.active { background:var(--topbar); color:#fff; }
+    .ltab-panel { display:none; }
+    .ltab-panel.active { display:block; }
+    .link-search { width:100%; background:var(--bg2); border:0.5px solid #444; border-radius:var(--r); color:var(--text); font-size:13px; padding:8px 11px; outline:none; margin-bottom:6px; }
+    .link-search:focus { border-color:var(--accent); }
+    .link-item { padding:8px 10px; border-radius:6px; font-size:12px; color:var(--text2); cursor:pointer; transition:background .15s; display:flex; align-items:center; gap:8px; }
+    .link-item:active, .link-item:hover { background:var(--surface2); }
+    .link-item.selected { background:var(--teal-mid); color:var(--accent); border:0.5px solid var(--teal-border); }
+    .link-list-scroll { max-height:130px; overflow-y:auto; }
+    .link-empty { font-size:11px; color:var(--text3); text-align:center; padding:12px 0; }
+
+    /* ===== EDITABLE PRICE FIELDS ===== */
+    .edit-field-row { display:flex; align-items:center; gap:6px; }
+    .edit-field-val { font-size:20px; font-weight:700; font-family:var(--mono); }
+    .edit-btn { width:24px; height:24px; border-radius:50%; background:var(--surface2); border:0.5px solid #444; color:var(--text3); font-size:11px; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .edit-input { background:var(--bg); border:0.5px solid var(--accent); border-radius:6px; color:var(--text); font-family:var(--mono); font-size:16px; font-weight:700; padding:4px 8px; width:90px; outline:none; }
+    .edited-badge { font-size:9px; color:var(--text3); font-family:var(--mono); }
+    .ws-min-row { margin-top:6px; font-size:10px; color:var(--teal-text); display:flex; align-items:center; gap:6px; }
+    .ws-min-input { background:var(--bg); border:0.5px solid var(--teal-border); border-radius:4px; color:var(--text); font-family:var(--mono); font-size:12px; padding:2px 6px; width:48px; outline:none; }
+
+    /* ===== COMPARE TAB ===== */
+    .compare-product-card { background:var(--surface); border:0.5px solid #333; border-radius:var(--r); padding:12px 14px; margin-bottom:8px; }
+    .cp-hdr { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
+    .cp-lbl { font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:1px; color:var(--text3); }
+    .cp-remove { width:22px; height:22px; border-radius:50%; background:var(--danger-dim); border:0.5px solid rgba(255,71,87,.2); color:var(--danger); font-size:11px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+    .cp-name { width:100%; background:var(--surface2); border:0.5px solid #444; border-radius:6px; color:var(--text); font-size:13px; padding:8px 10px; outline:none; margin-bottom:8px; }
+    .cp-name:focus { border-color:var(--accent); }
+    .cp-row { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px; }
+    .cp-input { background:var(--surface2); border:0.5px solid #444; border-radius:6px; color:var(--text); font-family:var(--mono); font-size:13px; padding:8px 10px; outline:none; width:100%; }
+    .cp-input:focus { border-color:var(--accent); }
+    .cp-unit-row { display:flex; gap:4px; }
+    .cp-unit-btn { flex:1; padding:5px 4px; background:var(--surface2); border:0.5px solid #444; border-radius:6px; color:var(--text3); font-family:var(--mono); font-size:11px; cursor:pointer; transition:all .15s; text-align:center; }
+    .cp-unit-btn.active { background:var(--topbar); color:#fff; border-color:var(--topbar); }
+    .compare-result { background:var(--teal-dark); border:0.5px solid var(--teal-border); border-radius:var(--r); padding:14px; margin-top:12px; }
+    .cr-winner { text-align:center; margin-bottom:12px; }
+    .cr-winner-lbl { font-size:10px; color:var(--teal-text); font-family:var(--mono); text-transform:uppercase; letter-spacing:1px; }
+    .cr-winner-name { font-size:16px; font-weight:700; color:var(--accent); margin:4px 0 2px; }
+    .cr-winner-price { font-family:var(--mono); font-size:22px; font-weight:700; color:var(--accent); }
+    .cr-item { display:flex; justify-content:space-between; align-items:center; padding:7px 0; border-bottom:0.5px solid var(--teal-border); font-size:12px; }
+    .cr-item:last-child { border-bottom:none; }
+    .cr-item.best { color:var(--accent); font-weight:700; }
+    .cr-item-name { flex:1; color:var(--text2); }
+    .cr-item.best .cr-item-name { color:var(--accent); }
+    .cr-item-val { font-family:var(--mono); color:var(--text); }
+    .cr-item.best .cr-item-val { color:var(--accent); }
+    .cr-item-diff { font-size:10px; color:var(--warn); margin-left:6px; }
+    .cr-qty-note { font-size:10px; color:var(--text3); margin-top:10px; line-height:1.5; }
+
+    /* ===== MANUAL ADD SHEET ===== */
+    #manual-add-modal { position:fixed; inset:0; z-index:600; background:rgba(0,0,0,.75); backdrop-filter:blur(4px); display:flex; align-items:flex-end; justify-content:center; opacity:0; pointer-events:none; transition:opacity .2s; }
+    #manual-add-modal.open { opacity:1; pointer-events:all; }
+    .manual-sheet { background:var(--bg2); border-radius:var(--r2) var(--r2) 0 0; border:0.5px solid #333; width:100%; max-width:480px; transform:translateY(24px); transition:transform .35s cubic-bezier(0.34,1.56,0.64,1); }
+    #manual-add-modal.open .manual-sheet { transform:translateY(0); }
+    .manual-handle { width:36px; height:4px; background:var(--surface2); border-radius:2px; margin:12px auto 8px; }
+    .manual-body { padding:14px 18px; padding-bottom:calc(16px + var(--safe-bottom)); }
+    .manual-title { font-size:14px; font-weight:700; color:var(--text); margin-bottom:14px; }
+
+    /* Cart add button in list rows */
+    .cart-add-btn { width:28px; height:28px; border-radius:50%; background:var(--teal-dark); border:0.5px solid var(--teal-border); color:var(--teal-text); font-size:13px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:transform .1s; flex-shrink:0; }
+    .cart-add-btn:active { transform:scale(.85); }
   </style>
 </head>
 <body>
@@ -374,6 +440,9 @@
     <button class="tab-btn" data-tab="camera" onclick="switchTab('camera')">
       <span class="ti">📷</span><span>Câmera</span>
     </button>
+    <button class="tab-btn" data-tab="compare" onclick="switchTab('compare')">
+      <span class="ti">⚖️</span><span>Comparar</span>
+    </button>
     <button class="tab-btn" data-tab="cart" onclick="switchTab('cart')">
       <span class="ti">🛒</span><span>Carrinho</span>
     </button>
@@ -421,6 +490,10 @@
           <div class="sheet-body" id="sheet-body"></div>
         </div>
       </div>
+    </div>
+
+    <div id="compare-view" class="view">
+      <div class="view-inner" id="compare-content" style="padding:14px 14px calc(20px + var(--safe-bottom))"></div>
     </div>
 
     <div id="cart-view" class="view">
@@ -578,6 +651,41 @@ shampoo"></textarea>
   </div>
 </div>
 
+<!-- MANUAL ADD TO CART -->
+<div id="manual-add-modal" onclick="if(event.target===this)closeManualAddSheet()">
+  <div class="manual-sheet">
+    <div class="manual-handle"></div>
+    <div class="manual-body">
+      <div class="manual-title" id="manual-add-title">Adicionar ao carrinho</div>
+      <div class="form-row form-grp">
+        <div>
+          <label class="form-label">Quantidade</label>
+          <input type="number" class="form-input" id="manual-qty" min="1" value="1" oninput="updateManualTotal()">
+        </div>
+        <div>
+          <label class="form-label">Preço un. (R$)</label>
+          <input type="text" class="form-input" id="manual-price" placeholder="0,00" inputmode="decimal" oninput="updateManualTotal()">
+        </div>
+      </div>
+      <div id="manual-ws-section" style="display:none">
+        <div class="ata-row" id="manual-ws-row" onclick="toggleManualWholesale()">
+          <div class="tog-sw" id="manual-ws-toggle"></div>
+          <div>
+            <div class="ata-label" id="manual-ws-label">⚡ Aplicar preço atacado</div>
+            <div class="ata-sub" id="manual-ws-sub"></div>
+          </div>
+        </div>
+      </div>
+      <div class="preview-block">
+        <div class="preview-lbl">TOTAL ESTIMADO</div>
+        <div class="preview-val" id="manual-total">R$0,00</div>
+        <div class="preview-sub" id="manual-total-sub"></div>
+      </div>
+      <button class="confirm-btn" onclick="confirmManualAdd()">🛒 ADICIONAR AO CARRINHO</button>
+    </div>
+  </div>
+</div>
+
 <div id="toast"></div>
 
 <!-- ══════════════ JAVASCRIPT ══════════════ -->
@@ -592,7 +700,18 @@ const state = {
   selectedCat:'Mercearia', atacadoEnabled:false,
   stream:null, currentResult:null, resultQty:1,
   flashOn:false, currentTab:'list',
-  expandedReport:null, addModalTab:'item'
+  expandedReport:null, addModalTab:'item',
+  // Feature 1: manual linking
+  linkTab:'type', linkedItem:null, linkedName:'',
+  // Feature 3: sheet edits
+  sheetEdits:{ unitPrice:null, wsPrice:null, wsMinQty:null },
+  // Feature 4: compare
+  compareItems:[
+    {name:'', price:'', qty:'', unit:'g'},
+    {name:'', price:'', qty:'', unit:'g'}
+  ],
+  // Feature 5: manual add
+  manualItemId:null, manualWsEnabled:false
 };
 
 const CATS = [
@@ -681,6 +800,7 @@ function renderAll(){
   renderList();
   renderCart();
   renderReport();
+  if(state.currentTab==='compare') renderCompare();
 }
 
 // ──────────────── BUDGET BAR ────────────────
@@ -777,6 +897,7 @@ function buildRow(item){
     <span class="qty-num">${item.plannedQty}</span>
     <button class="qty-btn" onclick="changeQty('${item.id}',1)">+</button>
     <button class="del-btn" onclick="deleteItem('${item.id}')">✕</button>
+    <button class="cart-add-btn" onclick="openManualAddSheet('${item.id}')" title="Adicionar ao carrinho">🛒</button>
   </div>` : '';
 
   return `<div class="${cls}">
@@ -1089,7 +1210,12 @@ async function captureAndAnalyze(){
     cv.width=vid.videoWidth||640; cv.height=vid.videoHeight||480;
     cv.getContext('2d').drawImage(vid,0,0);
     const b64=cv.toDataURL('image/jpeg',0.85).split(',')[1];
-    const ctx=state.shoppingList.map(i=>`- ${i.name} (${i.plannedQty}×, ${i.category})`).join('\n')||'Lista vazia.';
+    const pending=state.shoppingList.filter(i=>!i.collected);
+    const slice=pending.slice(0,15);
+    const ctx=slice.length
+      ? slice.map(i=>`${i.name} (${i.category})`).join(', ')
+        +(pending.length>15?` ...e mais ${pending.length-15} itens`:'')
+      : 'Lista vazia.';
     const result=await callVision(b64,ctx);
     if(result.error){
       showCamError(result.error);
@@ -1097,6 +1223,8 @@ async function captureAndAnalyze(){
     } else {
       hideCamError();
       state.currentResult=result; state.resultQty=1;
+      state.sheetEdits={unitPrice:null,wsPrice:null,wsMinQty:null};
+      state.linkTab='type'; state.linkedItem=null; state.linkedName='';
       showResultSheet();
     }
   }catch(e){
@@ -1200,11 +1328,27 @@ function renderSheet(){
   const r=state.currentResult; if(!r) return;
   const qty=state.resultQty;
   const ws=r.wholesale;
-  const isAta=ws?.enabled && qty>=ws.min_qty;
-  const effP=isAta?ws.price_per_unit:r.unit_price;
-  const total=effP*qty;
 
-  const matchedItem = findListMatch(r.product) ||
+  // Feature 3: use edited values if available
+  const unitP  = state.sheetEdits.unitPrice  ?? r.unit_price;
+  const wsP    = state.sheetEdits.wsPrice    ?? ws?.price_per_unit;
+  const wsMin  = state.sheetEdits.wsMinQty   ?? ws?.min_qty;
+  const edited = state.sheetEdits.unitPrice!==null || state.sheetEdits.wsPrice!==null || state.sheetEdits.wsMinQty!==null;
+
+  const wsEnabled = ws?.enabled && (wsP > 0);
+  const isAta = wsEnabled && qty >= wsMin;
+  const effP  = isAta ? wsP : unitP;
+  const total = effP * qty;
+
+  // Feature 1: determine product name (may be overridden by link)
+  const needsLink = r.product === 'Item escaneado' || (r.confidence && r.confidence < 0.6);
+  const displayName = state.linkedItem ? state.linkedItem.name
+    : (state.linkedName && state.linkedName.trim()) ? state.linkedName.trim()
+    : r.product;
+
+  // Find match using linked item first, then word match
+  const matchedItem = state.linkedItem ||
+    findListMatch(displayName) ||
     (r.matched_list_item ? state.shoppingList.find(i=>
       i.name.toLowerCase().includes(r.matched_list_item.toLowerCase())||
       r.matched_list_item.toLowerCase().includes(i.name.toLowerCase())
@@ -1220,27 +1364,67 @@ function renderSheet(){
   }
 
   const subLine=[r.brand,r.weight].filter(Boolean).join(' · ');
-  const confNote = r.confidence && r.confidence<0.6
-    ? `<div style="font-size:10px;color:var(--warn);margin-bottom:8px">⚠️ Baixa confiança — confirme o preço antes de adicionar</div>` : '';
+
+  // Feature 1: link section when unidentified
+  let linkHtml='';
+  if(needsLink){
+    const pendingItems = state.shoppingList.filter(i=>!i.collected);
+    const listItemsHtml = pendingItems.length
+      ? pendingItems.map(i=>`<div class="link-item${state.linkedItem?.id===i.id?' selected':''}" onclick="selectLinkedItem('${i.id}')">${esc(i.name)} <span style="color:var(--text3);font-size:10px">${i.plannedQty}×</span></div>`).join('')
+      : `<div class="link-empty">Nenhum item pendente na lista</div>`;
+    linkHtml=`<div class="link-section">
+      <div class="link-section-lbl">Produto não identificado — vincule manualmente:</div>
+      <div class="link-tabs">
+        <button class="ltab-btn${state.linkTab==='type'?' active':''}" onclick="switchLinkTab('type')">✍️ Digitar nome</button>
+        <button class="ltab-btn${state.linkTab==='select'?' active':''}" onclick="switchLinkTab('select')">📋 Selecionar da lista</button>
+      </div>
+      <div class="ltab-panel${state.linkTab==='type'?' active':''}">
+        <input type="text" id="link-name-input" class="link-search" placeholder="Ex: Leite Moça 395g"
+          value="${esc(state.linkedName)}" oninput="state.linkedName=this.value;state.linkedItem=null;renderSheet()">
+      </div>
+      <div class="ltab-panel${state.linkTab==='select'?' active':''}">
+        <input type="text" id="link-search-input" class="link-search" placeholder="Buscar na lista..." oninput="filterLinkList(this.value)">
+        <div class="link-list-scroll" id="link-list-scroll">${listItemsHtml}</div>
+      </div>
+    </div>`;
+  }
+
+  // Feature 3: editable price blocks
+  const unitPriceHtml = `<div class="result-price-block">
+    <div class="rp-label">Preço unitário ${edited&&state.sheetEdits.unitPrice!==null?'<span class="edited-badge">✏️ editado</span>':''}</div>
+    <div class="edit-field-row">
+      <div class="edit-field-val${isAta?' rp-inactive':''}" id="ep-unit-display">${fmt(unitP)}</div>
+      <button class="edit-btn" onclick="startEditPrice('unit')" title="Editar">✏️</button>
+    </div>
+  </div>`;
+
+  const wsPriceHtml = wsEnabled ? `<div class="result-price-block">
+    <div class="rp-label">Atacado ${edited&&state.sheetEdits.wsPrice!==null?'<span class="edited-badge">✏️ editado</span>':''}</div>
+    <div class="edit-field-row">
+      <div class="edit-field-val teal" id="ep-ws-display">${fmt(wsP)}</div>
+      <button class="edit-btn" onclick="startEditPrice('ws')" title="Editar">✏️</button>
+    </div>
+    ${isAta?`<div class="rp-sub">APLICADO ✓</div>`:''}
+    <div class="ws-min-row">
+      Ativo a partir de:
+      <input type="number" class="ws-min-input" value="${wsMin}" min="2"
+        onchange="state.sheetEdits.wsMinQty=parseInt(this.value)||2;renderSheet()"
+        onclick="event.stopPropagation()">
+      un ${edited&&state.sheetEdits.wsMinQty!==null?'<span class="edited-badge">✏️</span>':''}
+    </div>
+  </div>` : '';
 
   document.getElementById('sheet-body').innerHTML=`
-    <div class="sheet-product">${esc(r.product)}</div>
+    <div class="sheet-product">${esc(displayName)}</div>
     ${subLine?`<div class="sheet-sub">${esc(subLine)}</div>`:''}
-    ${confNote}
+    ${linkHtml}
     ${statusHtml}
     <div class="result-card">
       <div class="result-card-product">${esc(r.product)}</div>
       ${r.barcode?`<div style="color:var(--text3);font-size:10px;margin-bottom:8px;font-family:var(--mono)">Código: ${esc(r.barcode)}</div>`:''}
       <div class="result-prices">
-        <div class="result-price-block">
-          <div class="rp-label">Preço unitário</div>
-          <div class="rp-val${isAta?' rp-inactive':''}">${fmt(r.unit_price)}</div>
-        </div>
-        ${ws?.enabled?`<div class="result-price-block">
-          <div class="rp-label">Atacado (${ws.min_qty}+ un)</div>
-          <div class="rp-val teal">${fmt(ws.price_per_unit)}</div>
-          ${isAta?`<div class="rp-sub">APLICADO ✓</div>`:''}
-        </div>`:''}
+        ${unitPriceHtml}
+        ${wsPriceHtml}
       </div>
     </div>
     <div class="qty-row">
@@ -1248,7 +1432,9 @@ function renderSheet(){
         <div class="qty-block-lbl">Quantidade</div>
         <div class="qty-control">
           <button class="qc-btn" onclick="changeResultQty(-1)">−</button>
-          <span class="qc-val">${qty}</span>
+          <input type="number" class="edit-input" style="width:52px;font-size:18px;text-align:center"
+            value="${qty}" min="1" onchange="state.resultQty=Math.max(1,parseInt(this.value)||1);renderSheet()"
+            onclick="event.stopPropagation()">
           <button class="qc-btn" onclick="changeResultQty(1)">+</button>
         </div>
       </div>
@@ -1264,15 +1450,96 @@ function renderSheet(){
     </div>`;
 }
 
+// Feature 1: Link tab switching
+function switchLinkTab(tab){
+  state.linkTab=tab;
+  renderSheet();
+  setTimeout(()=>{
+    if(tab==='type') document.getElementById('link-name-input')?.focus();
+    else document.getElementById('link-search-input')?.focus();
+  },50);
+}
+function selectLinkedItem(id){
+  const item=state.shoppingList.find(i=>i.id===id);
+  if(!item) return;
+  if(state.linkedItem?.id===id){ state.linkedItem=null; }
+  else { state.linkedItem=item; state.linkedName=item.name; }
+  renderSheet();
+}
+function filterLinkList(q){
+  const qLow=q.toLowerCase();
+  const pendingItems=state.shoppingList.filter(i=>!i.collected);
+  const filtered=q ? pendingItems.filter(i=>i.name.toLowerCase().includes(qLow)) : pendingItems;
+  const el=document.getElementById('link-list-scroll');
+  if(!el) return;
+  el.innerHTML=filtered.length
+    ? filtered.map(i=>`<div class="link-item${state.linkedItem?.id===i.id?' selected':''}" onclick="selectLinkedItem('${i.id}')">${esc(i.name)} <span style="color:var(--text3);font-size:10px">${i.plannedQty}×</span></div>`).join('')
+    : `<div class="link-empty">Nenhum resultado</div>`;
+}
+
+// Feature 3: Inline price editing
+function startEditPrice(field){
+  const r=state.currentResult; if(!r) return;
+  const ws=r.wholesale;
+  const curUnitP = state.sheetEdits.unitPrice ?? r.unit_price;
+  const curWsP   = state.sheetEdits.wsPrice   ?? ws?.price_per_unit;
+
+  if(field==='unit'){
+    const displayEl=document.getElementById('ep-unit-display');
+    if(!displayEl) return;
+    const inp=document.createElement('input');
+    inp.type='text'; inp.inputMode='decimal';
+    inp.className='edit-input'; inp.value=curUnitP.toFixed(2).replace('.',',');
+    inp.style.width='90px';
+    displayEl.replaceWith(inp);
+    inp.focus(); inp.select();
+    const done=()=>{
+      const v=parsePrice(inp.value);
+      if(v>0){ state.sheetEdits.unitPrice=v; }
+      renderSheet();
+    };
+    inp.addEventListener('blur',done);
+    inp.addEventListener('keydown',e=>{if(e.key==='Enter')inp.blur();});
+  } else if(field==='ws'){
+    const displayEl=document.getElementById('ep-ws-display');
+    if(!displayEl) return;
+    const inp=document.createElement('input');
+    inp.type='text'; inp.inputMode='decimal';
+    inp.className='edit-input'; inp.value=(curWsP||0).toFixed(2).replace('.',',');
+    inp.style.width='90px';
+    displayEl.replaceWith(inp);
+    inp.focus(); inp.select();
+    const done=()=>{
+      const v=parsePrice(inp.value);
+      if(v>0){ state.sheetEdits.wsPrice=v; }
+      renderSheet();
+    };
+    inp.addEventListener('blur',done);
+    inp.addEventListener('keydown',e=>{if(e.key==='Enter')inp.blur();});
+  }
+}
+
 // ──────────────── ADD TO CART ────────────────
 function addToCart(){
   const r=state.currentResult; if(!r) return;
   const qty=state.resultQty;
   const ws=r.wholesale;
-  const isAta=ws?.enabled && qty>=ws.min_qty;
-  const up=isAta?ws.price_per_unit:r.unit_price;
 
-  const matchedItem = findListMatch(r.product) ||
+  // Feature 3: apply edited values
+  const unitP = state.sheetEdits.unitPrice  ?? r.unit_price;
+  const wsP   = state.sheetEdits.wsPrice    ?? ws?.price_per_unit;
+  const wsMin = state.sheetEdits.wsMinQty   ?? ws?.min_qty;
+  const wsEnabled = ws?.enabled && (wsP > 0);
+  const isAta = wsEnabled && qty >= wsMin;
+  const up    = isAta ? wsP : unitP;
+
+  // Feature 1: resolve display name and matched item
+  const displayName = state.linkedItem ? state.linkedItem.name
+    : (state.linkedName && state.linkedName.trim()) ? state.linkedName.trim()
+    : r.product;
+
+  const matchedItem = state.linkedItem ||
+    findListMatch(displayName) ||
     (r.matched_list_item ? state.shoppingList.find(i=>
       i.name.toLowerCase().includes(r.matched_list_item.toLowerCase())||
       r.matched_list_item.toLowerCase().includes(i.name.toLowerCase())
@@ -1281,7 +1548,7 @@ function addToCart(){
   const isExtra = !matchedItem || qty>(matchedItem?.plannedQty||0);
   const extraQty = matchedItem ? Math.max(0,qty-matchedItem.plannedQty) : qty;
 
-  const existIdx=state.cart.findIndex(c=>c.product===r.product);
+  const existIdx=state.cart.findIndex(c=>c.product===displayName);
   if(existIdx>=0){
     state.cart[existIdx].qty+=qty;
     state.cart[existIdx].total+=up*qty;
@@ -1289,23 +1556,23 @@ function addToCart(){
   } else {
     state.cart.push({
       id:Date.now().toString(),
-      product:r.product, brand:r.brand, weight:r.weight,
-      unitPrice:up, unitPriceOriginal:r.unit_price,
+      product:displayName, brand:r.brand, weight:r.weight,
+      unitPrice:up, unitPriceOriginal:unitP,
       qty, total:up*qty, isAtacado:isAta,
       listItemId:matchedItem?.id||null, isExtra, extraQty
     });
   }
 
   if(matchedItem){
-    matchedItem.collected   = true;
-    matchedItem.collectedQty   = qty;
+    matchedItem.collected    = true;
+    matchedItem.collectedQty = qty;
     matchedItem.effectivePrice = up;
   }
 
   navigator.vibrate?.(50);
   saveState(); renderAll();
   closeResultSheet();
-  showToast(`✓ ${r.product} adicionado`,'success');
+  showToast(`✓ ${displayName} adicionado`,'success');
 }
 
 // ──────────────── MODALS ────────────────
@@ -1518,6 +1785,7 @@ function switchTab(tab){
   document.getElementById('fab-cart').classList.toggle('visible',tab==='cart');
   updateBudgetBar();
   if(tab==='camera'&&!state.stream) startCamera();
+  if(tab==='compare') renderCompare();
 }
 
 // ──────────────── TOAST ────────────────
@@ -1527,6 +1795,246 @@ function showToast(msg,type='success'){
   el.textContent=msg; el.className=`${type} visible`;
   if(_tt) clearTimeout(_tt);
   _tt=setTimeout(()=>el.classList.remove('visible'),6000);
+}
+
+// ──────────────── COMPARE TAB (Feature 4) ────────────────
+function renderCompare(){
+  const el=document.getElementById('compare-content'); if(!el) return;
+  const items=state.compareItems;
+
+  let h=`<div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);margin-bottom:12px">⚖️ CALCULAR MELHOR PREÇO POR PESO/VOLUME</div>`;
+
+  items.forEach((it,idx)=>{
+    h+=`<div class="compare-product-card" id="cp-card-${idx}">
+      <div class="cp-hdr">
+        <span class="cp-lbl">Produto ${String.fromCharCode(65+idx)}</span>
+        ${items.length>2?`<button class="cp-remove" onclick="removeCompareProduct(${idx})">✕</button>`:''}
+      </div>
+      <input type="text" class="cp-name" placeholder="Nome (opcional)" value="${esc(it.name)}"
+        oninput="state.compareItems[${idx}].name=this.value">
+      <div class="cp-row">
+        <div>
+          <label class="form-label">Preço (R$)</label>
+          <input type="text" class="cp-input" inputmode="decimal" placeholder="0,00" value="${esc(it.price)}"
+            oninput="state.compareItems[${idx}].price=this.value;liveCompare()">
+        </div>
+        <div>
+          <label class="form-label">Quantidade</label>
+          <input type="text" class="cp-input" inputmode="decimal" placeholder="Ex: 500" value="${esc(it.qty)}"
+            oninput="state.compareItems[${idx}].qty=this.value;liveCompare()">
+        </div>
+      </div>
+      <label class="form-label">Unidade</label>
+      <div class="cp-unit-row">
+        ${['g','kg','ml','L'].map(u=>`<button class="cp-unit-btn${it.unit===u?' active':''}" onclick="setCompareUnit(${idx},'${u}')">${u}</button>`).join('')}
+      </div>
+    </div>`;
+  });
+
+  if(items.length<3){
+    h+=`<button class="confirm-btn" style="background:var(--surface2);color:var(--text2);border:0.5px solid #333;margin-bottom:8px" onclick="addCompareProduct()">＋ Adicionar produto</button>`;
+  }
+  h+=`<button class="confirm-btn" onclick="doCompare()">⚖️ COMPARAR</button>`;
+  h+=`<div id="compare-result"></div>`;
+  el.innerHTML=h;
+  // restore result if any
+  if(state._compareResult) renderCompareResult(state._compareResult);
+}
+
+function setCompareUnit(idx, unit){
+  state.compareItems[idx].unit=unit;
+  renderCompare();
+  liveCompare();
+}
+
+function addCompareProduct(){
+  if(state.compareItems.length>=3) return;
+  state.compareItems.push({name:'',price:'',qty:'',unit:'g'});
+  state._compareResult=null;
+  renderCompare();
+}
+
+function removeCompareProduct(idx){
+  state.compareItems.splice(idx,1);
+  state._compareResult=null;
+  renderCompare();
+}
+
+function liveCompare(){
+  const valid=state.compareItems.filter(it=>{
+    const p=parsePrice(it.price); const q=parseFloat(String(it.qty).replace(',','.'));
+    return p>0 && q>0;
+  });
+  if(valid.length>=2) doCompare(true);
+}
+
+function doCompare(silent=false){
+  const items=state.compareItems.map(it=>{
+    const price=parsePrice(it.price);
+    const qty=parseFloat(String(it.qty).replace(',','.'));
+    if(!price||!qty) return null;
+    // normalize to base unit: g or ml
+    let base=qty;
+    if(it.unit==='kg') base=qty*1000;
+    if(it.unit==='L')  base=qty*1000;
+    const per100=price/base*100;
+    const isVolume=it.unit==='ml'||it.unit==='L';
+    return {name:it.name||`Produto ${String.fromCharCode(65+state.compareItems.indexOf(it))}`,price,qty,unit:it.unit,base,per100,isVolume};
+  }).filter(Boolean);
+
+  if(items.length<2){
+    if(!silent) showToast('⚠️ Preencha ao menos 2 produtos com preço e quantidade','warn');
+    return;
+  }
+
+  // check consistency (mixing g/kg with ml/L)
+  const hasWeight=items.some(i=>i.unit==='g'||i.unit==='kg');
+  const hasVolume=items.some(i=>i.unit==='ml'||i.unit==='L');
+  if(hasWeight&&hasVolume){
+    if(!silent) showToast('⚠️ Mistura de peso e volume — compare itens com unidades compatíveis','warn');
+    return;
+  }
+
+  items.sort((a,b)=>a.per100-b.per100);
+  const best=items[0];
+  state._compareResult={items,best,baseUnit:best.isVolume?'ml':'g'};
+  renderCompareResult(state._compareResult);
+}
+
+function renderCompareResult({items,best,baseUnit}){
+  const el=document.getElementById('compare-result'); if(!el) return;
+  const unit100=baseUnit==='ml'?'100ml':'100g';
+  let h=`<div class="compare-result">
+    <div class="cr-winner">
+      <div class="cr-winner-lbl">🏆 MELHOR OPÇÃO</div>
+      <div class="cr-winner-name">${esc(best.name)}</div>
+      <div class="cr-winner-price">${fmt(best.per100)}/${unit100}</div>
+    </div>`;
+  items.forEach(it=>{
+    const isBest=it===best;
+    const diffPct=isBest?0:Math.round((it.per100-best.per100)/best.per100*100);
+    h+=`<div class="cr-item${isBest?' best':''}">
+      <span class="cr-item-name">${esc(it.name)}${isBest?' 🏆':''}</span>
+      <span class="cr-item-val">${fmt(it.per100)}/${unit100}${isBest?'':''}</span>
+      ${!isBest?`<span class="cr-item-diff">+${diffPct}%</span>`:''}
+    </div>`;
+  });
+  // Quantity note: show "how many of X = 1 of Y (for 2-item compare)"
+  if(items.length===2){
+    const a=items[0], b=items[1];
+    const nB=Math.round((a.base/b.base)*100)/100;
+    const totalA=a.price;
+    const totalB=Math.round(nB*b.price*100)/100;
+    const diff=Math.abs(totalA-totalB);
+    const cheaperLabel=totalA<totalB?a.name:b.name;
+    h+=`<div class="cr-qty-note">
+      Para a mesma quantidade de <strong>${esc(a.name)}</strong>:<br>
+      1× ${esc(a.name)} (${a.qty}${a.unit}) vs ${nB}× ${esc(b.name)} (${(nB*b.qty).toFixed(0)}${b.unit})<br>
+      ${fmt(totalA)} vs ${fmt(totalB)} → <strong>${esc(cheaperLabel)}</strong> é ${fmt(diff)} mais barato
+    </div>`;
+  }
+  h+=`</div>`;
+  el.innerHTML=h;
+}
+
+// ──────────────── MANUAL ADD TO CART (Feature 5) ────────────────
+function openManualAddSheet(itemId){
+  const item=state.shoppingList.find(i=>i.id===itemId); if(!item) return;
+  state.manualItemId=itemId;
+  state.manualWsEnabled=false;
+
+  document.getElementById('manual-add-title').textContent=`Adicionar — ${item.name}`;
+  document.getElementById('manual-qty').value=item.plannedQty;
+
+  const priceVal=item.unitPrice>0 ? item.unitPrice.toFixed(2).replace('.',',') : '';
+  document.getElementById('manual-price').value=priceVal;
+
+  const wsSection=document.getElementById('manual-ws-section');
+  const wsRow=document.getElementById('manual-ws-row');
+  const wsToggle=document.getElementById('manual-ws-toggle');
+  const wsLbl=document.getElementById('manual-ws-label');
+  const wsSub=document.getElementById('manual-ws-sub');
+  if(item.wholesale?.enabled){
+    wsSection.style.display='block';
+    wsLbl.textContent=`⚡ Aplicar preço atacado (${fmt(item.wholesale.pricePerUnit)}/un)`;
+    wsSub.textContent=`A partir de ${item.wholesale.minQty} unidades`;
+    wsToggle.className='tog-sw';
+  } else {
+    wsSection.style.display='none';
+  }
+  updateManualTotal();
+  document.getElementById('manual-add-modal').classList.add('open');
+}
+
+function closeManualAddSheet(){
+  document.getElementById('manual-add-modal').classList.remove('open');
+  state.manualItemId=null;
+  state.manualWsEnabled=false;
+}
+
+function toggleManualWholesale(){
+  state.manualWsEnabled=!state.manualWsEnabled;
+  document.getElementById('manual-ws-toggle').className='tog-sw'+(state.manualWsEnabled?' on':'');
+  updateManualTotal();
+}
+
+function updateManualTotal(){
+  const item=state.manualItemId ? state.shoppingList.find(i=>i.id===state.manualItemId) : null;
+  const qty=parseInt(document.getElementById('manual-qty')?.value)||1;
+  const rawPrice=parsePrice(document.getElementById('manual-price')?.value||'0');
+
+  let effPrice=rawPrice;
+  let sub='Preço normal';
+  if(item?.wholesale?.enabled && state.manualWsEnabled && qty>=item.wholesale.minQty){
+    effPrice=item.wholesale.pricePerUnit;
+    sub=`ATACADO APLICADO ✓ — ${fmt(item.wholesale.pricePerUnit)}/un`;
+  } else if(item?.wholesale?.enabled && !state.manualWsEnabled && rawPrice<=0 && item.unitPrice>0){
+    effPrice=item.unitPrice;
+  }
+
+  const total=effPrice*qty;
+  const totalEl=document.getElementById('manual-total');
+  const subEl=document.getElementById('manual-total-sub');
+  if(totalEl) totalEl.textContent=fmt(total);
+  if(subEl) subEl.textContent=`${qty}× ${fmt(effPrice)} — ${sub}`;
+}
+
+function confirmManualAdd(){
+  const item=state.manualItemId ? state.shoppingList.find(i=>i.id===state.manualItemId) : null;
+  if(!item){ closeManualAddSheet(); return; }
+  const qty=parseInt(document.getElementById('manual-qty').value)||1;
+  let rawPrice=parsePrice(document.getElementById('manual-price').value||'0');
+
+  let up=rawPrice;
+  let isAta=false;
+  if(item.wholesale?.enabled && state.manualWsEnabled && qty>=item.wholesale.minQty){
+    up=item.wholesale.pricePerUnit; isAta=true;
+  } else if(rawPrice<=0 && item.unitPrice>0){
+    up=item.unitPrice;
+  }
+  if(up<=0){ showToast('⚠️ Informe o preço','warn'); return; }
+
+  const isExtra = qty > item.plannedQty;
+  const existIdx=state.cart.findIndex(c=>c.product===item.name);
+  if(existIdx>=0){
+    state.cart[existIdx].qty+=qty;
+    state.cart[existIdx].total+=up*qty;
+    if(isAta) state.cart[existIdx].isAtacado=true;
+  } else {
+    state.cart.push({
+      id:Date.now().toString(),
+      product:item.name, brand:null, weight:null,
+      unitPrice:up, unitPriceOriginal:item.unitPrice||up,
+      qty, total:up*qty, isAtacado:isAta,
+      listItemId:item.id, isExtra,
+      extraQty:isExtra?qty-item.plannedQty:0
+    });
+  }
+  item.collected=true; item.collectedQty=qty; item.effectivePrice=up;
+  navigator.vibrate?.(50);
+  saveState(); renderAll();
+  closeManualAddSheet();
+  showToast(`✓ ${item.name} adicionado manualmente`,'success');
 }
 
 // ──────────────── BOOT ────────────────
